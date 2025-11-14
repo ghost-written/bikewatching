@@ -8,3 +8,90 @@ body {
   margin: auto;
   padding: 1em;
 }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.page-header .site-title {
+  margin: 0;
+  text-align: left;
+}
+
+.time-filter {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  width: 100%;
+}
+
+.time-filter_row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-filter_label {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.time-filter_row input[type="range"] {
+  flex: 1;
+}
+
+.time-filter_readout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: -0.15rem;
+  font-size: 0.8rem;
+}
+
+.time-filter_readout em {
+  font-style: italic;
+  color: #777;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
+.legend::before {
+  content: "Legend:";
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.5rem;
+}
+
+.legend > div {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+.legend > div::before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--color);
+}
